@@ -2,6 +2,7 @@ package com.sergiubarsa.mybank.services;
 
 import com.sergiubarsa.mybank.model.Transaction;
 
+import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
@@ -12,7 +13,7 @@ public class TransactionService {
     List<Transaction> transactions = new CopyOnWriteArrayList<>();
 
     public void createTransaction(int amount, String reference) {
-        String timestamp = "";
+        Instant timestamp = Instant.now();
         UUID uuid = UUID.randomUUID();
         Transaction transaction = new Transaction(amount, uuid, reference, timestamp);
 
