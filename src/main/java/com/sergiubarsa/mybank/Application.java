@@ -11,6 +11,7 @@ public class Application {
 
     public static TransactionService transactionService = new TransactionService(Clock.systemDefaultZone());
     public static ObjectMapper objectMapper = new ObjectMapper();
+
     static {
         objectMapper.registerModule(new JavaTimeModule());
         objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
