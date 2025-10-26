@@ -4,14 +4,17 @@ import com.sergiubarsa.mybank.model.Transaction;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class TransactionService {
 
     List<Transaction> transactions = new CopyOnWriteArrayList<>();
 
-    public void createTransaction(int id, int amount, String timestamp, String reference) {
-        Transaction transaction = new Transaction(id, amount, timestamp, reference);
+    public void createTransaction(int amount, String reference) {
+        String timestamp = "";
+        UUID uuid = UUID.randomUUID();
+        Transaction transaction = new Transaction(amount, uuid, reference, timestamp);
 
         transactions.add(transaction);
     }
