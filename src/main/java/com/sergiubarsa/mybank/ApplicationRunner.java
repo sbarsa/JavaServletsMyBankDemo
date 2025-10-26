@@ -11,7 +11,7 @@ public class ApplicationRunner {
     void main() throws LifecycleException {
 
         Tomcat tomcat = new Tomcat();
-        tomcat.setPort(8080);
+        tomcat.setPort(getPort());
         tomcat.getConnector();
 
         Context ctx = tomcat.addContext("", null);
@@ -20,5 +20,14 @@ public class ApplicationRunner {
         servlet.addMapping("/*");
 
         tomcat.start();
+    }
+
+    private static int getPort() {
+        String port = System.getProperty("server.port");
+        if (port == null) {
+            return 8080;
+        }
+
+        return Integer.parseInt(port);
     }
 }
