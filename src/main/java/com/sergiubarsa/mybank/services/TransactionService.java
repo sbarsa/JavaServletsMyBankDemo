@@ -20,12 +20,14 @@ public class TransactionService {
         this.clock = clock;
     }
 
-    public void createTransaction(int amount, String reference) {
+    public Transaction createTransaction(int amount, String reference) {
         Instant timestamp = clock.instant();
         UUID uuid = UUID.randomUUID();
         Transaction transaction = new Transaction(amount, uuid, reference, timestamp);
 
         transactions.add(transaction);
+
+        return transaction;
     }
 
     public List<Transaction> findAll() {

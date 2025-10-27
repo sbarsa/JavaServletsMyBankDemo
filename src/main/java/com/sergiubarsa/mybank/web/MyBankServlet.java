@@ -36,11 +36,13 @@ public class MyBankServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         if (req.getRequestURI().equalsIgnoreCase("/transactions")) {
             int amount = Integer.parseInt(req.getParameter("amount"));
             String reference = req.getParameter("reference");
-            transactionService.createTransaction(amount, reference);
+            Transaction createdTransaction = transactionService.createTransaction(amount, reference);
+
+            resp.getWriter().print(objectMapper.writeValueAsString(createdTransaction));
         }
     }
 
