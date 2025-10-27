@@ -1,6 +1,7 @@
 package com.sergiubarsa.mybank.services;
 
 import com.sergiubarsa.mybank.model.Transaction;
+import org.springframework.stereotype.Service;
 
 import java.time.Clock;
 import java.time.Instant;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+@Service
 public class TransactionService {
 
     List<Transaction> transactions = new CopyOnWriteArrayList<>();
