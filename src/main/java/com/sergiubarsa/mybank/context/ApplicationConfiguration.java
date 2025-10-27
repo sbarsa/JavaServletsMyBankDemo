@@ -6,10 +6,12 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.sergiubarsa.mybank.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.PropertySource;
 
 import java.time.Clock;
 
 @ComponentScan(basePackageClasses = ApplicationRunner.class)
+@PropertySource("classpath:/application.properties")
 public class ApplicationConfiguration {
 
 

@@ -8,12 +8,14 @@ public class Transaction {
     private int amount;
     private Instant timestamp;
     private String reference;
+    private String slogan;
 
-    public Transaction(int amount, UUID id, String reference, Instant timestamp) {
+    public Transaction(int amount, UUID id, String reference, Instant timestamp, String slogan) {
         this.amount = amount;
         this.id = id;
         this.reference = reference;
         this.timestamp = timestamp;
+        this.slogan = slogan;
     }
 
     public int getAmount() {
@@ -30,5 +32,9 @@ public class Transaction {
 
     public Instant getTimestamp() {
         return timestamp;
+    }
+
+    public String getSlogan() {
+        return slogan;
     }
 }
