@@ -3,17 +3,15 @@ package com.sergiubarsa.mybank.context;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.sergiubarsa.mybank.services.TransactionService;
+import com.sergiubarsa.mybank.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.time.Clock;
 
+@ComponentScan(basePackageClasses = ApplicationRunner.class)
 public class ApplicationConfiguration {
 
-    @Bean
-    public TransactionService transactionService(Clock clock) {
-        return new TransactionService(clock);
-    }
 
     @Bean
     public Clock clock() {
