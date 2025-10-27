@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sergiubarsa.mybank.context.ApplicationConfiguration;
 import com.sergiubarsa.mybank.model.Transaction;
 import com.sergiubarsa.mybank.services.TransactionService;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
