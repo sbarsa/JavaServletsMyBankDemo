@@ -28,6 +28,4 @@ public class MyBankController {
     public Transaction create(@RequestBody TransactionDto transactionDto) {
         return transactionService.createTransaction(transactionDto.getAmount(),transactionDto.getReference());
     }
-
-
 }
