@@ -3,6 +3,7 @@ package com.sergiubarsa.mybank.web;
 import com.sergiubarsa.mybank.dto.TransactionDto;
 import com.sergiubarsa.mybank.model.Transaction;
 import com.sergiubarsa.mybank.services.TransactionService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,7 +26,7 @@ public class MyBankController {
     }
 
     @PostMapping("/transactions")
-    public Transaction create(@RequestBody TransactionDto transactionDto) {
+    public Transaction create(@RequestBody @Valid TransactionDto transactionDto) {
         return transactionService.createTransaction(transactionDto.getAmount(),transactionDto.getReference());
     }
 }
